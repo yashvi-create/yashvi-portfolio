@@ -3,128 +3,238 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yashvi | Creative Dev Portfolio</title>
+    <title>Yashvi Thakar | Cloud & DevOps Portfolio</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-        
-        /* Premium Moody Dark Background */
-        body { background-color: #1A1616; color: #EAE5E1; padding: 40px 20px; }
-        
-        /* Centered Header Section */
-        header { text-align: center; max-width: 700px; margin: 0 auto 40px auto; }
-        .greeting { font-size: 14px; color: #C2B6AE; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; font-weight: 600; }
-        h1 { font-size: 38px; font-weight: 700; color: #FFFFFF; margin-bottom: 14px; letter-spacing: -0.5px; }
-        .desc { font-size: 16px; color: #AFA69F; line-height: 1.5; margin-bottom: 30px; }
-        
-        /* Sleek Centered Search Bar & Categories */
-        .search-container { max-width: 500px; margin: 0 auto 24px auto; position: relative; }
-        .search-bar { width: 100%; padding: 14px 20px; border-radius: 30px; border: 1px solid #3A3333; background: #2A2424; font-size: 15px; color: #FFFFFF; box-shadow: 0 4px 20px rgba(0,0,0,0.2); outline: none; transition: all 0.3s ease; text-align: center; }
-        .search-bar::placeholder { color: #706560; }
-        .search-bar:focus { border-color: #D4B2A7; box-shadow: 0 4px 12px rgba(212,178,167,0.15); }
-        
-        .categories { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 40px; }
-        .cat-btn { padding: 8px 18px; border-radius: 20px; border: none; background: #2D2626; color: #C2B6AE; font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.2s ease; }
-        .cat-btn.active { background: #D4B2A7; color: #1A1616; font-weight: 600; }
-        .cat-btn:hover:not(.active) { background: #3D3434; color: #FFFFFF; }
+        /* Modern, minimal, and premium aesthetic colors */
+        :root {
+            --bg-color: #FAF7F5;
+            --card-bg: #FFFFFF;
+            --text-main: #2D2424;
+            --text-muted: #6B5B5B;
+            --accent: #B88E8D; /* Muted Rose-Gold */
+            --border: #E8E2DE;
+        }
 
-        /* Full Width Pinterest-Style Grid */
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 26px; max-width: 1300px; margin: 0 auto; }
-        .card { background: #241E1E; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15); transition: transform 0.3s ease, border-color 0.3s ease; display: flex; flex-direction: column; border: 1px solid #2D2626; }
-        .card:hover { transform: translateY(-6px); border-color: #4D3F3F; }
-        
-        /* High-End Glassmorphism and Fluid Art Placeholders */
-        .card-img { width: 100%; height: 320px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; background-color: #1F1A1A; }
-        .card-img::before { content: ''; position: absolute; width: 140%; height: 140%; background: linear-gradient(45deg, var(--bg1), var(--bg2)); filter: blur(30px); opacity: 0.4; }
-        .glass-shape { width: 130px; height: 130px; border-radius: 24px; background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; font-size: 36px; z-index: 1; transition: transform 0.3s ease; }
-        .card:hover .glass-shape { transform: scale(1.05) rotate(3deg); }
-        
-        .card-info { padding: 20px; background: #241E1E; }
-        .card-title { font-size: 16px; font-weight: 600; color: #FFFFFF; margin-bottom: 6px; letter-spacing: 0.3px; }
-        .card-sub { font-size: 13px; color: #AFA69F; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px 20px 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .links {
+            margin-top: 15px;
+        }
+
+        .links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .links a:hover {
+            color: var(--accent);
+        }
+
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .intro {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 12px rgba(184, 142, 141, 0.05);
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        @media (min-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 25px;
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+        }
+
+        .card-icon {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .card h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.25rem;
+        }
+
+        .tags {
+            margin-top: 15px;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: #F1ECE9;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 20px;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .skills-section {
+            margin-top: 40px;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-badge {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="greeting">Good afternoon, Yashvi</div>
-        <h1>Yashvi's Automated Creative Hub ✨</h1>
-        <p class="desc">A calm, curated space for the work you love. Browse, save, and shape your creative cloud and design direction.</p>
-        
-        <div class="search-container">
-            <input type="text" class="search-bar" placeholder="Search inspiration, pipelines, aesthetics...">
-        </div>
-        
-        <div class="categories">
-            <button class="cat-btn active">All</button>
-            <button class="cat-btn">Cute Aesthetics</button>
-            <button class="cat-btn">AWS Cloud</button>
-            <button class="cat-btn">DevOps Pipelines</button>
-            <button class="cat-btn">3D Art</button>
+        <h1>Yashvi Thakar</h1>
+        <div class="subtitle">Cloud & DevOps Engineer</div>
+        <div class="links">
+            <a href="https://linkedin.com" target="_blank">LinkedIn</a> • 
+            <a href="https://github.com" target="_blank">GitHub</a> • 
+            <a href="mailto:yashvithakar003@gmail.com">Email</a>
         </div>
     </header>
 
-    <main class="grid">
-        <!-- Card 1 -->
-        <div class="card">
-            <div class="card-img" style="--bg1: #A77B70; --bg2: #E6C5BC;">
-                <div class="glass-shape">💻</div>
-            </div>
-            <div class="card-info">
-                <div class="card-title">Aesthetic Workspace</div>
-                <div class="card-sub">Created by Yashvi · Muted Rose-Gold</div>
-            </div>
-        </div>
+    <main>
+        <section class="intro">
+            <h2>About Me ✨</h2>
+            <p>Computer Science graduate with hands-on experience in cloud infrastructure, DevOps automation, and container orchestration across AWS, IBM Cloud, and Microsoft Azure. I design production-style systems focused on automation and high reliability.</p>
+        </section>
 
-        <!-- Card 2 -->
-        <div class="card">
-            <div class="card-img" style="--bg1: #4A6B82; --bg2: #7FAAB5;">
-                <div class="glass-shape">⚙️</div>
+        <h2>Featured Projects ⚙️</h2>
+        <section class="grid">
+            
+            <!-- Project 1 -->
+            <div class="card">
+                <div class="card-icon">☁️</div>
+                <h3>Serverless Image Pipeline</h3>
+                <p>A fully serverless image processing system triggered instantly by S3 bucket uploads with zero server management fees.</p>
+                <div class="tags">
+                    <span class="tag">AWS Lambda</span>
+                    <span class="tag">Amazon S3</span>
+                    <span class="tag">Amazon SNS</span>
+                </div>
             </div>
-            <div class="card-info">
-                <div class="card-title">My Cloud Pipeline</div>
-                <div class="card-sub">Created by Yashvi · CI/CD Automated</div>
-            </div>
-        </div>
 
-        <!-- Card 3 -->
-        <div class="card">
-            <div class="card-img" style="--bg1: #6C5B7B; --bg2: #C06C84;">
-                <div class="glass-shape">☁️</div>
+            <!-- Project 2 -->
+            <div class="card">
+                <div class="card-icon">⚡</div>
+                <h3>Phoenix Gateway</h3>
+                <p>High-availability edge architecture utilizing AWS CloudFront with S3 origin failover to mimic real enterprise resilience.</p>
+                <div class="tags">
+                    <span class="tag">CloudFront</span>
+                    <span class="tag">Amazon S3</span>
+                    <span class="tag">CDN Failover</span>
+                </div>
             </div>
-            <div class="card-info">
-                <div class="card-title">AWS Infrastructure</div>
-                <div class="card-sub">Created by Yashvi · Serverless Architect</div>
-            </div>
-        </div>
 
-        <!-- Card 4 -->
-        <div class="card">
-            <div class="card-img" style="--bg1: #8C7A6B; --bg2: #D4C3B3;">
-                <div class="glass-shape">✨</div>
+            <!-- Project 3 -->
+            <div class="card">
+                <div class="card-icon">🛡️</div>
+                <h3>Operation Fire Security Lab</h3>
+                <p>A Blue Team endpoint monitoring lab simulating advanced threat detection and live log analysis.</p>
+                <div class="tags">
+                    <span class="tag">Kali Linux</span>
+                    <span class="tag">Sysmon</span>
+                    <span class="tag">PowerShell</span>
+                </div>
             </div>
-            <div class="card-info">
-                <div class="card-title">Minimalist Frontend</div>
-                <div class="card-sub">Created by Yashvi · Premium Assets</div>
+
+            <!-- Project 4 -->
+            <div class="card">
+                <div class="card-icon">🚀</div>
+                <h3>Automated Creative Hub</h3>
+                <p>This entire creative portfolio, instantly deployed globally using continuous CI/CD pipelines.</p>
+                <div class="tags">
+                    <span class="tag">AWS Amplify</span>
+                    <span class="tag">CI/CD</span>
+                    <span class="tag">Git Automation</span>
+                </div>
             </div>
-        </div>
+
+        </section>
+
+        <section class="skills-section">
+            <h2>Technical Skills 💻</h2>
+            <div class="skills-list">
+                <div class="skill-badge"><b>Cloud:</b> AWS, IBM Cloud, Azure</div>
+                <div class="skill-badge"><b>DevOps:</b> Docker, Kubernetes (EKS), GitHub Actions</div>
+                <div class="skill-badge"><b>Networking:</b> TCP/IP, Subnets, Route Tables</div>
+                <div class="skill-badge"><b>Languages:</b> Python, JavaScript, SQL, HTML/CSS</div>
+            </div>
+        </section>
     </main>
-        <!-- Creative DevOps Showcase Box -->
-    <section style="max-width: 1300px; margin: 50px auto 0 auto; background: rgba(255,255,255,0.02); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.05); border-radius: 20px; padding: 40px; box-shadow: 0 20px 40px rgba(0,0,0,0.2);">
-        <h2 style="color: #FFFFFF; font-size: 24px; margin-bottom: 20px; letter-spacing: 0.5px;">💡 Project Case Study: The Self-Healing Pipeline</h2>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
-            <div>
-                <h3 style="color: #D4B2A7; font-size: 16px; margin-bottom: 8px;">The Challenge 🎨</h3>
-                <p style="color: #AFA69F; font-size: 14px; line-height: 1.6;">Needed an ultra-premium, aesthetic asset interface for creators, built entirely out of automated infrastructure without server management fees.</p>
-            </div>
-            <div>
-                <h3 style="color: #D4B2A7; font-size: 16px; margin-bottom: 8px;">The Execution ⚙️</h3>
-                <p style="color: #AFA69F; font-size: 14px; line-height: 1.6;">Designed a responsive front-end template and provisioned it utilizing AWS Amplify Hosting to create an instant CI/CD automation pipeline linked with Git.</p>
-            </div>
-            <div>
-                <h3 style="color: #D4B2A7; font-size: 16px; margin-bottom: 8px;">The Business Impact 📈</h3>
-                <p style="color: #AFA69F; font-size: 14px; line-height: 1.6;">Reduced infrastructure maintenance overhead to exactly <strong>$0.00/month</strong> while ensuring instantaneous edge deployments globally.</p>
-            </div>
-        </div>
-    </section>
+
 </body>
 </html>
