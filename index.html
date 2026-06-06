@@ -3,243 +3,279 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yashvi Thakar | Cloud Portfolio</title>
+    <title>Yashvi Thakar | Cloud & DevOps Architect</title>
     <style>
-        /* Premium Soft Lavender & Minimalist Dark Palette */
-    :root {
-    --bg-base: #0A080D;       /* Deep rich dark background with a hint of violet */
-    --bg-bento: #14111A;      /* Sleek dark bento cards */
-    --rose-gold: #D2C4E3;     /* Beautiful Soft Lavender Accent */
-    --rose-bright: #ECE5F5;   /* Bright Lavender for highlighted text */
-    --text-white: #FAF8FC;    /* Crisp near-white for body text */
-    --text-dim: #8F8799;      /* Muted lavender-grey for subtext */
-    --glow: rgba(210, 196, 227, 0.12); /* Soft lavender shadow glow */
-    --border-color: #241F2E;  /* Elegant dark violet borders */
-    }
-
+        /* Modern, Light Lavender Luxury UI Palette */
+        :root {
+            --bg-canvas: #F4F0FA;       /* Very light, creamy lavender-tinted background */
+            --bg-bento: rgba(255, 255, 255, 0.65); /* Frosted white glassmorphism layer */
+            --lavender-main: #967BB6;  /* Primary rich lavender purple accent */
+            --lavender-light: #E6E6FA; /* Classic soft light lavender */
+            --lavender-deep: #4A3E5C;   /* Deep charcoal purple for crisp text readability */
+            --text-main: #2D2536;       /* Dark berry tone for headers */
+            --text-muted: #6B5E78;      /* Soft purple-grey for paragraph copy */
+            --neon-green: #2ECC71;      /* Bright professional green for active indicators */
+            --glass-border: rgba(150, 123, 182, 0.2); /* Soft lavender-tinted borders */
+            --shadow-glow: rgba(150, 123, 182, 0.08); /* High-end subtle ambient glow */
+        }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
         }
 
         body {
-            background-color: var(--bg-base);
-            color: var(--text-white);
-            padding: 40px 20px;
+            background-color: var(--bg-canvas);
+            background-image: 
+                radial-gradient(at 10% 20%, rgba(230, 230, 250, 0.7) 0px, transparent 50%),
+                radial-gradient(at 90% 10%, rgba(210, 180, 240, 0.4) 0px, transparent 50%),
+                radial-gradient(at 50% 80%, rgba(255, 255, 255, 0.8) 0px, transparent 50%);
+            color: var(--text-main);
+            padding: 30px 20px 60px 20px;
+            min-height: 100vh;
         }
 
-        /* Bento Grid Wrapper Configuration */
-        .bento-container {
-            max-width: 1100px;
+        /* Interactive Dashboard Bento Grid Configuration */
+        .bento-grid {
+            max-width: 1150px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
+            gap: 24px;
         }
 
-        /* Universal Bento Block Element Styling */
+        /* Glassmorphism Card Core Components */
         .bento-card {
-            background-color: var(--bg-bento);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 30px;
-            position: relative;
-            overflow: hidden;
+            background: var(--bg-bento);
+            backdrop-filter: blur(16px) saturate(120%);
+            -webkit-backdrop-filter: blur(16px) saturate(120%);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 8px 32px 0 var(--shadow-glow);
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .bento-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--rose-gold);
-            box-shadow: 0 10px 30px var(--glow);
+            transform: translateY(-6px);
+            border-color: var(--lavender-main);
+            box-shadow: 0 12px 40px 0 rgba(150, 123, 182, 0.18);
         }
 
-        /* Sizing Variations for Grid Structure */
-        .span-4 { grid-column: span 4; }
-        .span-3 { grid-column: span 3; }
-        .span-2 { grid-column: span 2; }
-        .span-1 { grid-column: span 1; }
+        /* Responsive Grid Column Spans */
+        .col-4 { grid-column: span 4; }
+        .col-3 { grid-column: span 3; }
+        .col-2 { grid-column: span 2; }
+        .col-1 { grid-column: span 1; }
 
-        @media (max-width: 768px) {
-            .bento-container { grid-template-columns: 1fr; }
+        @media (max-width: 900px) {
+            .bento-grid { grid-template-columns: 1fr; }
             .bento-card { grid-column: span 1 !important; }
         }
 
-        /* Individual Card Typography & Layout Elements */
-        .intro-title {
+        /* Typography & Custom Aesthetic Accents */
+        .hero-title {
             font-size: 2.8rem;
+            font-weight: 800;
+            line-height: 1.2;
+            color: var(--text-main);
             letter-spacing: -1px;
-            color: var(--text-white);
-            margin-bottom: 10px;
+            margin-bottom: 16px;
         }
 
-        .intro-title span {
-            color: var(--rose-gold);
+        .hero-title span {
+            color: var(--lavender-main);
+            background: linear-gradient(135deg, var(--lavender-main), #7B5E9B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .tagline {
-            font-size: 1.1rem;
-            color: var(--text-dim);
-            max-width: 600px;
+        .hero-desc {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            max-width: 750px;
         }
 
-        .pill-badge {
+        /* Status Badge Component */
+        .status-badge {
             display: inline-flex;
             align-items: center;
-            background: rgba(229, 180, 178, 0.08);
-            border: 1px solid rgba(229, 180, 178, 0.2);
-            color: var(--rose-gold);
+            gap: 8px;
+            background: rgba(46, 204, 113, 0.12);
+            border: 1px solid rgba(46, 204, 113, 0.25);
+            color: #1E7E43;
             padding: 6px 14px;
             border-radius: 30px;
             font-size: 0.8rem;
-            font-weight: 600;
+            font-weight: 700;
             letter-spacing: 0.5px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            width: max-content;
         }
 
-        .card-heading {
-            font-size: 1.3rem;
-            color: var(--rose-gold);
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--neon-green);
+            border-radius: 50%;
+            box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7);
+            animation: pulse-effect 1.8s infinite;
+        }
+
+        @keyframes pulse-effect {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.5); }
+            70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(46, 204, 113, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); }
+        }
+
+        .card-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--lavender-main);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
             margin-bottom: 12px;
-            font-weight: 600;
         }
 
-        .card-desc {
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 10px;
+        }
+
+        .card-body {
             font-size: 0.95rem;
-            color: var(--text-dim);
-            line-height: 1.5;
+            color: var(--text-muted);
+            line-height: 1.6;
         }
 
-        /* Custom Interactive Visual Architecture Box Component */
-        .diagram-box {
-            background: rgba(0, 0, 0, 0.2);
-            border: 1px dashed var(--border-color);
-            border-radius: 12px;
-            margin-top: 15px;
-            padding: 15px;
+        /* Architecture Mini-Map Feature Component */
+        .arch-flow {
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px dashed rgba(150, 123, 182, 0.3);
+            border-radius: 14px;
+            padding: 14px;
+            margin-top: 18px;
             display: flex;
             justify-content: space-around;
             align-items: center;
             font-size: 0.8rem;
-            color: var(--rose-gold);
+            font-weight: 600;
+            color: var(--lavender-deep);
         }
 
-        .node {
-            background: var(--bg-base);
-            border: 1px solid var(--border-color);
+        .flow-node {
+            background: white;
+            border: 1px solid var(--glass-border);
             padding: 6px 12px;
-            border-radius: 6px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
         }
 
-        .arrow {
-            color: var(--text-dim);
+        .flow-arrow {
+            color: var(--lavender-main);
+            font-weight: bold;
         }
 
-        /* Metric Indicator Blocks */
-        .metric-big {
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--text-white);
+        /* Large Metrics Layout */
+        .large-metric {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--text-main);
             line-height: 1;
-            margin-bottom: 5px;
+            margin: 10px 0;
         }
 
-        /* Footer Link Blocks */
-        .social-link {
+        .large-metric span {
+            color: var(--lavender-main);
+        }
+
+        /* Interactive Footer Link Blocks */
+        .action-link {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            color: var(--text-white);
+            color: var(--text-main);
             text-decoration: none;
-            font-weight: 500;
-            margin-top: 15px;
+            font-weight: 600;
+            padding: 12px 16px;
+            background: white;
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            margin-top: 12px;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
         }
 
-        .social-link:hover {
-            color: var(--rose-gold);
+        .action-link:hover {
+            background: var(--lavender-main);
+            color: white;
+            border-color: var(--lavender-main);
+        }
+
+        /* Clean Skills Grid Arrangement */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .skill-tag {
+            background: white;
+            border: 1px solid var(--glass-border);
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--lavender-deep);
         }
     </style>
 </head>
 <body>
 
-    <div class="bento-container">
+    <div class="bento-grid">
 
-        <!-- Block 1: Profile Brand & Introduction Hero Title -->
-        <div class="bento-card span-4" style="background: linear-gradient(135deg, #141010 0%, #1A1414 100%);">
-            <div class="pill-badge">✨ AVAILABLE FOR CLOUD OPERATIONS ROLES</div>
-            <h1 class="intro-title">Hi, I'm <span>Yashvi Thakar</span>. I build automated cloud architectures with premium efficiency.</h1>
-            <p class="tagline">Computer Science graduate specializing in zero-maintenance serverless systems, global content edge failover structures, and secure cloud pipelines.</p>
-        </div>
-
-        <!-- Block 2: Main Featured Project 01 (Serverless Image Processing) -->
-        <div class="bento-card span-2">
-            <div class="pill-badge">AWS SERVICE WORKFLOW</div>
-            <h2 class="card-heading">Serverless Event Pipeline</h2>
-            <p class="card-desc">An instant, live processing layout that handles data ingestion pipelines the microsecond files drop into cloud cloud pools.</p>
-            
-            <!-- Interactive Diagram Simulation Widget -->
-            <div class="diagram-box">
-                <div class="node">S3 Upload</div>
-                <div class="arrow">➔</div>
-                <div class="node" style="border-color: var(--rose-gold);">Lambda</div>
-                <div class="arrow">➔</div>
-                <div class="node">SNS Email</div>
+        <!-- Block 1: Executive Profile Summary Title Hero -->
+        <div class="bento-card col-4">
+            <div>
+                <div class="status-badge">
+                    <div class="pulse-dot"></div>
+                    OPEN TO MNC OFFER LETTERS
+                </div>
+                <h1 class="hero-title">Hi, I'm <span>Yashvi Thakar</span>. I engineer high-availability automated cloud architectures.</h1>
+                <p class="hero-desc">Computer Science graduate specializing in zero-maintenance serverless systems, resilient global multi-cloud delivery structures, and secure deployment networks.</p>
             </div>
         </div>
 
-        <!-- New High-Impact Recruiter Metric Block (Spans 2 columns) -->
-<div class="bento-card span-2" style="display: flex; flex-direction: column; justify-content: center;">
-    <div class="pill-badge" style="width: max-content;">⚙️ ARCHITECTURE FOOTPRINT</div>
-    <div class="metric-big" style="color: var(--rose-bright); font-size: 2.5rem; margin-top: 5px;">
-        15+ <span style="font-size: 1.2rem; color: var(--rose-gold); font-weight: 500;">AWS Assets</span>
-    </div>
-    <p class="card-desc" style="margin-top: 8px;">
-        Successfully mapped, deployed, and automated across multi-cloud test networks with zero configuration drift.
-    </p>
-</div>
-
-        <!-- Block 5: Core Technical Competency Block -->
-        <div class="bento-card span-1">
-            <h2 class="card-heading">Cloud Stack</h2>
-            <p class="card-desc" style="color: var(--rose-gold); font-weight: 500; line-height: 1.8;">
-                • AWS Cloud<br>
-                • Microsoft Azure<br>
-                • IBM Cloud Run<br>
-                • Container EKS
-            </p>
-        </div>
-
-        <!-- Block 6: Main Featured Project 02 (Phoenix Failover Gateway) -->
-        <div class="bento-card span-3">
-            <div class="pill-badge">RESILIENCE ARCHITECTURE</div>
-            <h2 class="card-heading">Phoenix High-Availability Edge Gateway</h2>
-            <p class="card-desc">A secure data system built with automated origin-shifting pathways. It completely shields target endpoints from connection losses by using active global content deliveries.</p>
-        </div>
-
-        <!-- Block 7: Main Featured Project 03 (Blue Team Endpoint Security Lab) -->
-        <div class="bento-card span-2">
-            <div class="pill-badge">ENDPOINT PROTECTION SIMULATION</div>
-            <h2 class="card-heading">Operation Fire Lab</h2>
-            <p class="card-desc">A deep diagnostic station that validates live local activity arrays using script-based parsing to spot anomalies instantly.</p>
-        </div>
-
-        <!-- Block 8: External Professional Networking Navigation Block -->
-        <div class="bento-card span-2" style="background: #1A1414;">
-            <h2 class="card-heading">Let's Connect</h2>
-            <p class="card-desc">Recruiters can download my verified system assets or initiate direct contact right here.</p>
+        <!-- Block 2: Featured Project 01 (Serverless Image Pipeline) -->
+        <div class="bento-card col-2">
+            <div>
+                <div class="card-label">AWS PRODUCTION INFRASTRUCTURE</div>
+                <h2 class="card-title">Serverless Event Pipeline</h2>
+                <p class="card-body">A hands-off cloud computing flow triggered instantly by cloud storage events to process application workloads in real time.</p>
+            </div>
             
-            <a href="https://linkedin.com" target="_blank" class="social-link">
-                <span>View LinkedIn Profile</span> <span>↗</span>
-            </a>
-            <a href="https://github.com" target="_blank" class="social-link" style="margin-top: 10px;">
-                <span>Explore Source Repositories</span> <span>↗</span>
-            </a>
+            <!-- Visual Architecture Dataflow Component Map -->
+            <div class="arch-flow">
+                <div class="flow-node">S3 Array</div>
+                <div class="flow-arrow">➔</div>
+                <div class="flow-node" style="border-color: var(--lavender-main); background: var(--lavender-light);">Lambda</div>
+                <div class="flow-arrow">➔</div>
+                <div class="flow-node">SNS Email</div>
+            </div>
         </div>
 
-    </div>
-
-</body>
-</html>
+        <!-- Block 3: Unified Cloud Asset Scale Metric (Replaces old individual statistics) -->
+        <div class="bento-card col-2">
+            <div>
+                <div class="card-label">SYSTEM FOOTPRINT</div>
+                <h2 class="card-title">Orchestration Footprint</h2>
+                <div class="large-metric">15+ <span>AWS Nodes</span></div>
