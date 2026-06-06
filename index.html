@@ -3,279 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yashvi Thakar | Cloud & DevOps Architect</title>
+    <title>Yashvi | Creative Dev Portfolio</title>
     <style>
-        /* Modern, Light Lavender Luxury UI Palette */
-        :root {
-            --bg-canvas: #F4F0FA;       /* Very light, creamy lavender-tinted background */
-            --bg-bento: rgba(255, 255, 255, 0.65); /* Frosted white glassmorphism layer */
-            --lavender-main: #967BB6;  /* Primary rich lavender purple accent */
-            --lavender-light: #E6E6FA; /* Classic soft light lavender */
-            --lavender-deep: #4A3E5C;   /* Deep charcoal purple for crisp text readability */
-            --text-main: #2D2536;       /* Dark berry tone for headers */
-            --text-muted: #6B5E78;      /* Soft purple-grey for paragraph copy */
-            --neon-green: #2ECC71;      /* Bright professional green for active indicators */
-            --glass-border: rgba(150, 123, 182, 0.2); /* Soft lavender-tinted borders */
-            --shadow-glow: rgba(150, 123, 182, 0.08); /* High-end subtle ambient glow */
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        
+        /* Premium Moody Dark Background */
+        body { background-color: #1A1616; color: #EAE5E1; padding: 40px 20px; }
+        
+        /* Centered Header Section */
+        header { text-align: center; max-width: 700px; margin: 0 auto 40px auto; }
+        .greeting { font-size: 14px; color: #C2B6AE; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; font-weight: 600; }
+        h1 { font-size: 38px; font-weight: 700; color: #FFFFFF; margin-bottom: 14px; letter-spacing: -0.5px; }
+        .desc { font-size: 16px; color: #AFA69F; line-height: 1.5; margin-bottom: 30px; }
+        
+        /* Sleek Centered Search Bar & Categories */
+        .search-container { max-width: 500px; margin: 0 auto 24px auto; position: relative; }
+        .search-bar { width: 100%; padding: 14px 20px; border-radius: 30px; border: 1px solid #3A3333; background: #2A2424; font-size: 15px; color: #FFFFFF; box-shadow: 0 4px 20px rgba(0,0,0,0.2); outline: none; transition: all 0.3s ease; text-align: center; }
+        .search-bar::placeholder { color: #706560; }
+        .search-bar:focus { border-color: #D4B2A7; box-shadow: 0 4px 12px rgba(212,178,167,0.15); }
+        
+        .categories { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 40px; }
+        .cat-btn { padding: 8px 18px; border-radius: 20px; border: none; background: #2D2626; color: #C2B6AE; font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.2s ease; }
+        .cat-btn.active { background: #D4B2A7; color: #1A1616; font-weight: 600; }
+        .cat-btn:hover:not(.active) { background: #3D3434; color: #FFFFFF; }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-canvas);
-            background-image: 
-                radial-gradient(at 10% 20%, rgba(230, 230, 250, 0.7) 0px, transparent 50%),
-                radial-gradient(at 90% 10%, rgba(210, 180, 240, 0.4) 0px, transparent 50%),
-                radial-gradient(at 50% 80%, rgba(255, 255, 255, 0.8) 0px, transparent 50%);
-            color: var(--text-main);
-            padding: 30px 20px 60px 20px;
-            min-height: 100vh;
-        }
-
-        /* Interactive Dashboard Bento Grid Configuration */
-        .bento-grid {
-            max-width: 1150px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-        }
-
-        /* Glassmorphism Card Core Components */
-        .bento-card {
-            background: var(--bg-bento);
-            backdrop-filter: blur(16px) saturate(120%);
-            -webkit-backdrop-filter: blur(16px) saturate(120%);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            padding: 32px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            box-shadow: 0 8px 32px 0 var(--shadow-glow);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .bento-card:hover {
-            transform: translateY(-6px);
-            border-color: var(--lavender-main);
-            box-shadow: 0 12px 40px 0 rgba(150, 123, 182, 0.18);
-        }
-
-        /* Responsive Grid Column Spans */
-        .col-4 { grid-column: span 4; }
-        .col-3 { grid-column: span 3; }
-        .col-2 { grid-column: span 2; }
-        .col-1 { grid-column: span 1; }
-
-        @media (max-width: 900px) {
-            .bento-grid { grid-template-columns: 1fr; }
-            .bento-card { grid-column: span 1 !important; }
-        }
-
-        /* Typography & Custom Aesthetic Accents */
-        .hero-title {
-            font-size: 2.8rem;
-            font-weight: 800;
-            line-height: 1.2;
-            color: var(--text-main);
-            letter-spacing: -1px;
-            margin-bottom: 16px;
-        }
-
-        .hero-title span {
-            color: var(--lavender-main);
-            background: linear-gradient(135deg, var(--lavender-main), #7B5E9B);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero-desc {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            line-height: 1.6;
-            max-width: 750px;
-        }
-
-        /* Status Badge Component */
-        .status-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(46, 204, 113, 0.12);
-            border: 1px solid rgba(46, 204, 113, 0.25);
-            color: #1E7E43;
-            padding: 6px 14px;
-            border-radius: 30px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            margin-bottom: 20px;
-            width: max-content;
-        }
-
-        .pulse-dot {
-            width: 8px;
-            height: 8px;
-            background-color: var(--neon-green);
-            border-radius: 50%;
-            box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.7);
-            animation: pulse-effect 1.8s infinite;
-        }
-
-        @keyframes pulse-effect {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.5); }
-            70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(46, 204, 113, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); }
-        }
-
-        .card-label {
-            font-size: 0.75rem;
-            font-weight: 700;
-            color: var(--lavender-main);
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 12px;
-        }
-
-        .card-title {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--text-main);
-            margin-bottom: 10px;
-        }
-
-        .card-body {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
-
-        /* Architecture Mini-Map Feature Component */
-        .arch-flow {
-            background: rgba(255, 255, 255, 0.5);
-            border: 1px dashed rgba(150, 123, 182, 0.3);
-            border-radius: 14px;
-            padding: 14px;
-            margin-top: 18px;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--lavender-deep);
-        }
-
-        .flow-node {
-            background: white;
-            border: 1px solid var(--glass-border);
-            padding: 6px 12px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
-        }
-
-        .flow-arrow {
-            color: var(--lavender-main);
-            font-weight: bold;
-        }
-
-        /* Large Metrics Layout */
-        .large-metric {
-            font-size: 2.8rem;
-            font-weight: 800;
-            color: var(--text-main);
-            line-height: 1;
-            margin: 10px 0;
-        }
-
-        .large-metric span {
-            color: var(--lavender-main);
-        }
-
-        /* Interactive Footer Link Blocks */
-        .action-link {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: var(--text-main);
-            text-decoration: none;
-            font-weight: 600;
-            padding: 12px 16px;
-            background: white;
-            border: 1px solid var(--glass-border);
-            border-radius: 12px;
-            margin-top: 12px;
-            font-size: 0.9rem;
-            transition: all 0.2s ease;
-        }
-
-        .action-link:hover {
-            background: var(--lavender-main);
-            color: white;
-            border-color: var(--lavender-main);
-        }
-
-        /* Clean Skills Grid Arrangement */
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 12px;
-        }
-
-        .skill-tag {
-            background: white;
-            border: 1px solid var(--glass-border);
-            padding: 6px 12px;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--lavender-deep);
-        }
+        /* Full Width Pinterest-Style Grid */
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 26px; max-width: 1300px; margin: 0 auto; }
+        .card { background: #241E1E; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15); transition: transform 0.3s ease, border-color 0.3s ease; display: flex; flex-direction: column; border: 1px solid #2D2626; }
+        .card:hover { transform: translateY(-6px); border-color: #4D3F3F; }
+        
+        /* High-End Glassmorphism and Fluid Art Placeholders */
+        .card-img { width: 100%; height: 320px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; background-color: #1F1A1A; }
+        .card-img::before { content: ''; position: absolute; width: 140%; height: 140%; background: linear-gradient(45deg, var(--bg1), var(--bg2)); filter: blur(30px); opacity: 0.4; }
+        .glass-shape { width: 130px; height: 130px; border-radius: 24px; background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; font-size: 36px; z-index: 1; transition: transform 0.3s ease; }
+        .card:hover .glass-shape { transform: scale(1.05) rotate(3deg); }
+        
+        .card-info { padding: 20px; background: #241E1E; }
+        .card-title { font-size: 16px; font-weight: 600; color: #FFFFFF; margin-bottom: 6px; letter-spacing: 0.3px; }
+        .card-sub { font-size: 13px; color: #AFA69F; }
     </style>
 </head>
 <body>
 
-    <div class="bento-grid">
+    <header>
+        <div class="greeting">Good afternoon, Yashvi</div>
+        <h1>Find your next bit of inspiration</h1>
+        <p class="desc">A calm, curated space for the work you love. Browse, save, and shape your creative cloud and design direction.</p>
+        
+        <div class="search-container">
+            <input type="text" class="search-bar" placeholder="Search inspiration, pipelines, aesthetics...">
+        </div>
+        
+        <div class="categories">
+            <button class="cat-btn active">All</button>
+            <button class="cat-btn">Cute Aesthetics</button>
+            <button class="cat-btn">AWS Cloud</button>
+            <button class="cat-btn">DevOps Pipelines</button>
+            <button class="cat-btn">3D Art</button>
+        </div>
+    </header>
 
-        <!-- Block 1: Executive Profile Summary Title Hero -->
-        <div class="bento-card col-4">
-            <div>
-                <div class="status-badge">
-                    <div class="pulse-dot"></div>
-                    OPEN TO MNC OFFER LETTERS
-                </div>
-                <h1 class="hero-title">Hi, I'm <span>Yashvi Thakar</span>. I engineer high-availability automated cloud architectures.</h1>
-                <p class="hero-desc">Computer Science graduate specializing in zero-maintenance serverless systems, resilient global multi-cloud delivery structures, and secure deployment networks.</p>
+    <main class="grid">
+        <!-- Card 1 -->
+        <div class="card">
+            <div class="card-img" style="--bg1: #A77B70; --bg2: #E6C5BC;">
+                <div class="glass-shape">💻</div>
+            </div>
+            <div class="card-info">
+                <div class="card-title">Aesthetic Workspace</div>
+                <div class="card-sub">Created by Yashvi · Muted Rose-Gold</div>
             </div>
         </div>
 
-        <!-- Block 2: Featured Project 01 (Serverless Image Pipeline) -->
-        <div class="bento-card col-2">
-            <div>
-                <div class="card-label">AWS PRODUCTION INFRASTRUCTURE</div>
-                <h2 class="card-title">Serverless Event Pipeline</h2>
-                <p class="card-body">A hands-off cloud computing flow triggered instantly by cloud storage events to process application workloads in real time.</p>
+        <!-- Card 2 -->
+        <div class="card">
+            <div class="card-img" style="--bg1: #4A6B82; --bg2: #7FAAB5;">
+                <div class="glass-shape">⚙️</div>
             </div>
-            
-            <!-- Visual Architecture Dataflow Component Map -->
-            <div class="arch-flow">
-                <div class="flow-node">S3 Array</div>
-                <div class="flow-arrow">➔</div>
-                <div class="flow-node" style="border-color: var(--lavender-main); background: var(--lavender-light);">Lambda</div>
-                <div class="flow-arrow">➔</div>
-                <div class="flow-node">SNS Email</div>
+            <div class="card-info">
+                <div class="card-title">My Cloud Pipeline</div>
+                <div class="card-sub">Created by Yashvi · CI/CD Automated</div>
             </div>
         </div>
 
-        <!-- Block 3: Unified Cloud Asset Scale Metric (Replaces old individual statistics) -->
-        <div class="bento-card col-2">
-            <div>
-                <div class="card-label">SYSTEM FOOTPRINT</div>
-                <h2 class="card-title">Orchestration Footprint</h2>
-                <div class="large-metric">15+ <span>AWS Nodes</span></div>
+        <!-- Card 3 -->
+        <div class="card">
+            <div class="card-img" style="--bg1: #6C5B7B; --bg2: #C06C84;">
+                <div class="glass-shape">☁️</div>
+            </div>
+            <div class="card-info">
+                <div class="card-title">AWS Infrastructure</div>
+                <div class="card-sub">Created by Yashvi · Serverless Architect</div>
+            </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="card">
+            <div class="card-img" style="--bg1: #8C7A6B; --bg2: #D4C3B3;">
+                <div class="glass-shape">✨</div>
+            </div>
+            <div class="card-info">
+                <div class="card-title">Minimalist Frontend</div>
+                <div class="card-sub">Created by Yashvi · Premium Assets</div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
