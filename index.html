@@ -3,340 +3,243 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yashvi Thakar | Cloud & DevOps Portfolio</title>
+    <title>Yashvi Thakar | Cloud Portfolio</title>
     <style>
-        /* CSS Variables for Rose-Gold Terminal Vibe */
+        /* Premium Soft Rose-Gold & Luxury Dark Palette */
         :root {
-            --bg-deep: #0D0B0B;
-            --bg-card: #161212;
-            --terminal-head: #221A1A;
-            --rose-gold: #E0A9A5;
-            --rose-dim: #A67C79;
-            --text-light: #F5EBEA;
-            --text-muted: #A39291;
-            --neon-green: #50FA7B;
-            --border: #2C2221;
+            --bg-base: #0B0909;
+            --bg-bento: #141010;
+            --rose-gold: #E5B4B2;
+            --rose-bright: #F7D4D2;
+            --text-white: #FAF6F6;
+            --text-dim: #8F807F;
+            --glow: rgba(229, 180, 178, 0.15);
+            --border-color: #261E1E;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Courier New', Courier, monospace;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
         body {
-            background-color: var(--bg-deep);
-            color: var(--text-light);
-            overflow-x: hidden;
-            padding-bottom: 80px;
+            background-color: var(--bg-base);
+            color: var(--text-white);
+            padding: 40px 20px;
         }
 
-        /* Navigation with Pulsing Badge */
-        nav {
+        /* Bento Grid Wrapper Configuration */
+        .bento-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        /* Universal Bento Block Element Styling */
+        .bento-card {
+            background-color: var(--bg-bento);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .bento-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--rose-gold);
+            box-shadow: 0 10px 30px var(--glow);
+        }
+
+        /* Sizing Variations for Grid Structure */
+        .span-4 { grid-column: span 4; }
+        .span-3 { grid-column: span 3; }
+        .span-2 { grid-column: span 2; }
+        .span-1 { grid-column: span 1; }
+
+        @media (max-width: 768px) {
+            .bento-container { grid-template-columns: 1fr; }
+            .bento-card { grid-column: span 1 !important; }
+        }
+
+        /* Individual Card Typography & Layout Elements */
+        .intro-title {
+            font-size: 2.8rem;
+            letter-spacing: -1px;
+            color: var(--text-white);
+            margin-bottom: 10px;
+        }
+
+        .intro-title span {
+            color: var(--rose-gold);
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            color: var(--text-dim);
+            max-width: 600px;
+        }
+
+        .pill-badge {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(229, 180, 178, 0.08);
+            border: 1px solid rgba(229, 180, 178, 0.2);
+            color: var(--rose-gold);
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+        }
+
+        .card-heading {
+            font-size: 1.3rem;
+            color: var(--rose-gold);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            color: var(--text-dim);
+            line-height: 1.5;
+        }
+
+        /* Custom Interactive Visual Architecture Box Component */
+        .diagram-box {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px dashed var(--border-color);
+            border-radius: 12px;
+            margin-top: 15px;
+            padding: 15px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--rose-gold);
+        }
+
+        .node {
+            background: var(--bg-base);
+            border: 1px solid var(--border-color);
+            padding: 6px 12px;
+            border-radius: 6px;
+        }
+
+        .arrow {
+            color: var(--text-dim);
+        }
+
+        /* Metric Indicator Blocks */
+        .metric-big {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--text-white);
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        /* Footer Link Blocks */
+        .social-link {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 40px;
-            border-bottom: 1px solid var(--border);
-            background: rgba(13, 11, 11, 0.8);
-            backdrop-filter: blur(10px);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .logo {
-            font-weight: bold;
-            color: var(--rose-gold);
-            font-size: 1.2rem;
-        }
-
-        .badge-container {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(80, 250, 123, 0.1);
-            border: 1px solid var(--neon-green);
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            color: var(--neon-green);
-        }
-
-        .pulse {
-            width: 8px;
-            height: 8px;
-            background-color: var(--neon-green);
-            border-radius: 50%;
-            box-shadow: 0 0 0 0 rgba(80, 250, 123, 0.7);
-            animation: pulsing 1.6s infinite;
-        }
-
-        @keyframes pulsing {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(80, 250, 123, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(80, 250, 123, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(80, 250, 123, 0); }
-        }
-
-        /* Hero Layout */
-        header {
-            max-width: 1000px;
-            margin: 60px auto;
-            padding: 0 20px;
-            text-align: center;
-        }
-
-        header h1 {
-            font-size: 3rem;
-            color: var(--rose-gold);
-            margin-bottom: 10px;
-        }
-
-        .subtitle {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            margin-bottom: 25px;
-        }
-
-        /* Live Cloud Infrastructure Stats Bar */
-        .stats-bar {
-            max-width: 1000px;
-            margin: 0 auto 50px auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            padding: 0 20px;
-        }
-
-        .stat-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            padding: 15px;
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        .stat-val {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--rose-gold);
-        }
-
-        .stat-lbl {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            margin-top: 5px;
-        }
-
-        /* Premium Aesthetic Terminal Window Component */
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .terminal {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            margin-bottom: 50px;
-        }
-
-        .terminal-header {
-            background: var(--terminal-head);
-            padding: 12px;
-            display: flex;
-            align-items: center;
-            position: relative;
-        }
-
-        .buttons {
-            display: flex;
-            gap: 6px;
-        }
-
-        .btn {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: #ff5f56;
-        }
-        .btn.y { background: #ffbd2e; }
-        .btn.g { background: #27c93f; }
-
-        .terminal-title {
-            position: absolute;
-            width: 100%;
-            text-align: center;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            left: 0;
-        }
-
-        .terminal-body {
-            padding: 25px;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        .cmd { color: var(--rose-gold); }
-        .output { color: var(--text-light); margin-bottom: 15px; }
-
-        /* Project Cards Structure */
-        .project-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 25px;
-            margin-top: 30px;
-        }
-
-        @media(min-width: 768px) {
-            .project-grid { grid-template-columns: 1fr 1fr; }
-        }
-
-        .p-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 25px;
-            transition: all 0.3s ease;
-        }
-
-        .p-card:hover {
-            border-color: var(--rose-gold);
-            transform: translateY(-3px);
-        }
-
-        .p-title {
-            font-size: 1.25rem;
-            color: var(--rose-gold);
-            margin-bottom: 10px;
-        }
-
-        /* Case Study Framing Section */
-        .case-study {
-            margin-top: 20px;
-            border-top: 1px dashed var(--border);
-            padding-top: 15px;
-            font-size: 0.85rem;
-        }
-
-        .cs-segment { margin-bottom: 8px; }
-        .cs-label { color: var(--rose-dim); font-weight: bold; }
-
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
+            color: var(--text-white);
+            text-decoration: none;
+            font-weight: 500;
             margin-top: 15px;
         }
 
-        .tag {
-            background: var(--terminal-head);
-            border: 1px solid var(--border);
+        .social-link:hover {
             color: var(--rose-gold);
-            padding: 4px 8px;
-            font-size: 0.75rem;
-            border-radius: 4px;
-        }
-
-        /* Endless Infinite Ticker At Bottom */
-        .ticker-wrap {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: var(--terminal-head);
-            border-top: 1px solid var(--border);
-            overflow: hidden;
-            padding: 12px 0;
-            z-index: 100;
-        }
-
-        .ticker {
-            display: flex;
-            width: max-content;
-            animation: scroll 25s linear infinite;
-        }
-
-        .ticker span {
-            padding: 0 30px;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
         }
     </style>
 </head>
 <body>
 
-    <!-- Nav with Pulsing Badge -->
-    <nav>
-        <div class="logo">YASHVI.CLOUD_</div>
-        <div class="badge-container">
-            <div class="pulse"></div>
-            OPEN TO WORK
-        </div>
-    </nav>
+    <div class="bento-container">
 
-    <!-- Top Info Head -->
-    <header>
-        <h1>Yashvi Thakar</h1>
-        <div class="subtitle">Cloud & DevOps Systems Engineer</div>
-        <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto; font-size: 0.9rem;">
-            Computer Science graduate specializing in highly available serverless workflows and production automation environments.
-        </p>
-    </header>
+        <!-- Block 1: Profile Brand & Introduction Hero Title -->
+        <div class="bento-card span-4" style="background: linear-gradient(135deg, #141010 0%, #1A1414 100%);">
+            <div class="pill-badge">✨ AVAILABLE FOR CLOUD OPERATIONS ROLES</div>
+            <h1 class="intro-title">Hi, I'm <span>Yashvi Thakar</span>. I build automated cloud architectures with premium efficiency.</h1>
+            <p class="tagline">Computer Science graduate specializing in zero-maintenance serverless systems, global content edge failover structures, and secure cloud pipelines.</p>
+        </div>
 
-    <!-- Live Infrastructure Metrics Row -->
-    <div class="stats-bar">
-        <div class="stat-card">
-            <div class="stat-val">$0.00</div>
-            <div class="stat-lbl">Infra Cost/Mo</div>
+        <!-- Block 2: Main Featured Project 01 (Serverless Image Processing) -->
+        <div class="bento-card span-2">
+            <div class="pill-badge">AWS SERVICE WORKFLOW</div>
+            <h2 class="card-heading">Serverless Event Pipeline</h2>
+            <p class="card-desc">An instant, live processing layout that handles data ingestion pipelines the microsecond files drop into cloud cloud pools.</p>
+            
+            <!-- Interactive Diagram Simulation Widget -->
+            <div class="diagram-box">
+                <div class="node">S3 Upload</div>
+                <div class="arrow">➔</div>
+                <div class="node" style="border-color: var(--rose-gold);">Lambda</div>
+                <div class="arrow">➔</div>
+                <div class="node">SNS Email</div>
+            </div>
         </div>
-        <div class="stat-card">
-            <div class="stat-val">99.9%</div>
-            <div class="stat-lbl">Edge Uptime</div>
+
+        <!-- Block 3: Metrics Display Block 01 -->
+        <div class="bento-card span-1" style="text-align: center; justify-content: center; display: flex; flex-direction: column;">
+            <div class="metric-big">$0<span>.00</span></div>
+            <p class="card-desc" style="text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px;">Infrastructure Fee / Mo</p>
         </div>
-        <div class="stat-card">
-            <div class="stat-val">&lt; 30s</div>
-            <div class="stat-lbl">CI/CD Deploy Time</div>
+
+        <!-- Block 4: Metrics Display Block 02 -->
+        <div class="bento-card span-1" style="text-align: center; justify-content: center; display: flex; flex-direction: column;">
+            <div class="metric-big">20%</div>
+            <p class="card-desc" style="text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px;">Config Flaws Prevented</p>
         </div>
+
+        <!-- Block 5: Core Technical Competency Block -->
+        <div class="bento-card span-1">
+            <h2 class="card-heading">Cloud Stack</h2>
+            <p class="card-desc" style="color: var(--rose-gold); font-weight: 500; line-height: 1.8;">
+                • AWS Cloud<br>
+                • Microsoft Azure<br>
+                • IBM Cloud Run<br>
+                • Container EKS
+            </p>
+        </div>
+
+        <!-- Block 6: Main Featured Project 02 (Phoenix Failover Gateway) -->
+        <div class="bento-card span-3">
+            <div class="pill-badge">RESILIENCE ARCHITECTURE</div>
+            <h2 class="card-heading">Phoenix High-Availability Edge Gateway</h2>
+            <p class="card-desc">A secure data system built with automated origin-shifting pathways. It completely shields target endpoints from connection losses by using active global content deliveries.</p>
+        </div>
+
+        <!-- Block 7: Main Featured Project 03 (Blue Team Endpoint Security Lab) -->
+        <div class="bento-card span-2">
+            <div class="pill-badge">ENDPOINT PROTECTION SIMULATION</div>
+            <h2 class="card-heading">Operation Fire Lab</h2>
+            <p class="card-desc">A deep diagnostic station that validates live local activity arrays using script-based parsing to spot anomalies instantly.</p>
+        </div>
+
+        <!-- Block 8: External Professional Networking Navigation Block -->
+        <div class="bento-card span-2" style="background: #1A1414;">
+            <h2 class="card-heading">Let's Connect</h2>
+            <p class="card-desc">Recruiters can download my verified system assets or initiate direct contact right here.</p>
+            
+            <a href="https://linkedin.com" target="_blank" class="social-link">
+                <span>View LinkedIn Profile</span> <span>↗</span>
+            </a>
+            <a href="https://github.com" target="_blank" class="social-link" style="margin-top: 10px;">
+                <span>Explore Source Repositories</span> <span>↗</span>
+            </a>
+        </div>
+
     </div>
 
-    <!-- Main Terminal Showcase Grid -->
-    <div class="container">
-        
-        <!-- Live Terminal Block Component -->
-        <div class="terminal">
-            <div class="terminal-header">
-                <div class="buttons">
-                    <div class="btn"></div>
-                    <div class="btn y"></div>
-                    <div class="btn g"></div>
-                </div>
-                <div class="terminal-title">yashvi@aws-cloud-infrastructure:~</div>
-            </div>
-            <div class="terminal-body">
-                <div class="cmd">~ $ curl -s https://yashvi.cloud</div>
-                <div class="output">{"status": "active", "environment": "production", "monitoring": "enabled"}</div>
-                
-                <div class="cmd">~ $ cat system_overview.md</div>
-                <div class="output">
-                    Welcome to my automated workspace. Every structural block featured below is built out of verified infrastructure deployment scripts, aiming for zero overhead configuration anomalies.
-                </div>
-                <div class="cmd">~ <span class="pulse" style="display:inline-block; width:6px; height:12px; border-radius:0; animation: pulsing 1s infinite;"></span></div>
-            </div>
-        </div>
-
-        <!-- System Architecture Projects Sections -->
+</body>
+</html>
