@@ -5,17 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yashvi Thakar | Cloud Portfolio</title>
     <style>
-        /* Premium Soft Rose-Gold & Luxury Dark Palette */
-        :root {
-            --bg-base: #0B0909;
-            --bg-bento: #141010;
-            --rose-gold: #E5B4B2;
-            --rose-bright: #F7D4D2;
-            --text-white: #FAF6F6;
-            --text-dim: #8F807F;
-            --glow: rgba(229, 180, 178, 0.15);
-            --border-color: #261E1E;
-        }
+        /* Premium Soft Lavender & Minimalist Dark Palette */
+    :root {
+    --bg-base: #0A080D;       /* Deep rich dark background with a hint of violet */
+    --bg-bento: #14111A;      /* Sleek dark bento cards */
+    --rose-gold: #D2C4E3;     /* Beautiful Soft Lavender Accent */
+    --rose-bright: #ECE5F5;   /* Bright Lavender for highlighted text */
+    --text-white: #FAF8FC;    /* Crisp near-white for body text */
+    --text-dim: #8F8799;      /* Muted lavender-grey for subtext */
+    --glow: rgba(210, 196, 227, 0.12); /* Soft lavender shadow glow */
+    --border-color: #241F2E;  /* Elegant dark violet borders */
+    }
+
 
         * {
             box-sizing: border-box;
@@ -189,17 +190,16 @@
             </div>
         </div>
 
-        <!-- Block 3: Metrics Display Block 01 -->
-        <div class="bento-card span-1" style="text-align: center; justify-content: center; display: flex; flex-direction: column;">
-            <div class="metric-big">$0<span>.00</span></div>
-            <p class="card-desc" style="text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px;">Infrastructure Fee / Mo</p>
-        </div>
-
-        <!-- Block 4: Metrics Display Block 02 -->
-        <div class="bento-card span-1" style="text-align: center; justify-content: center; display: flex; flex-direction: column;">
-            <div class="metric-big">20%</div>
-            <p class="card-desc" style="text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px;">Config Flaws Prevented</p>
-        </div>
+        <!-- New High-Impact Recruiter Metric Block (Spans 2 columns) -->
+<div class="bento-card span-2" style="display: flex; flex-direction: column; justify-content: center;">
+    <div class="pill-badge" style="width: max-content;">⚙️ ARCHITECTURE FOOTPRINT</div>
+    <div class="metric-big" style="color: var(--rose-bright); font-size: 2.5rem; margin-top: 5px;">
+        15+ <span style="font-size: 1.2rem; color: var(--rose-gold); font-weight: 500;">AWS Assets</span>
+    </div>
+    <p class="card-desc" style="margin-top: 8px;">
+        Successfully mapped, deployed, and automated across multi-cloud test networks with zero configuration drift.
+    </p>
+</div>
 
         <!-- Block 5: Core Technical Competency Block -->
         <div class="bento-card span-1">
