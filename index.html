@@ -1,113 +1,923 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yashvi | Creative Dev Portfolio</title>
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
-        
-        /* Premium Moody Dark Background */
-        body { background-color: #1A1616; color: #EAE5E1; padding: 40px 20px; }
-        
-        /* Centered Header Section */
-        header { text-align: center; max-width: 700px; margin: 0 auto 40px auto; }
-        .greeting { font-size: 14px; color: #C2B6AE; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; font-weight: 600; }
-        h1 { font-size: 38px; font-weight: 700; color: #FFFFFF; margin-bottom: 14px; letter-spacing: -0.5px; }
-        .desc { font-size: 16px; color: #AFA69F; line-height: 1.5; margin-bottom: 30px; }
-        
-        /* Sleek Centered Search Bar & Categories */
-        .search-container { max-width: 500px; margin: 0 auto 24px auto; position: relative; }
-        .search-bar { width: 100%; padding: 14px 20px; border-radius: 30px; border: 1px solid #3A3333; background: #2A2424; font-size: 15px; color: #FFFFFF; box-shadow: 0 4px 20px rgba(0,0,0,0.2); outline: none; transition: all 0.3s ease; text-align: center; }
-        .search-bar::placeholder { color: #706560; }
-        .search-bar:focus { border-color: #D4B2A7; box-shadow: 0 4px 12px rgba(212,178,167,0.15); }
-        
-        .categories { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 40px; }
-        .cat-btn { padding: 8px 18px; border-radius: 20px; border: none; background: #2D2626; color: #C2B6AE; font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.2s ease; }
-        .cat-btn.active { background: #D4B2A7; color: #1A1616; font-weight: 600; }
-        .cat-btn:hover:not(.active) { background: #3D3434; color: #FFFFFF; }
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Yashvi — Cloud & DevOps Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --rose: #e8b4b8;
+    --rose-deep: #c9848a;
+    --rose-glow: rgba(232,180,184,0.15);
+    --gold: #d4a853;
+    --gold-light: #f0cc7a;
+    --dark: #0d0d0f;
+    --dark2: #141418;
+    --dark3: #1c1c22;
+    --dark4: #242430;
+    --text: #e8e4e0;
+    --text-muted: #8a8490;
+    --terminal-green: #4ade80;
+    --aws-orange: #ff9900;
+    --border: rgba(232,180,184,0.12);
+  }
 
-        /* Full Width Pinterest-Style Grid */
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 26px; max-width: 1300px; margin: 0 auto; }
-        .card { background: #241E1E; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15); transition: transform 0.3s ease, border-color 0.3s ease; display: flex; flex-direction: column; border: 1px solid #2D2626; }
-        .card:hover { transform: translateY(-6px); border-color: #4D3F3F; }
-        
-        /* High-End Glassmorphism and Fluid Art Placeholders */
-        .card-img { width: 100%; height: 320px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; background-color: #1F1A1A; }
-        .card-img::before { content: ''; position: absolute; width: 140%; height: 140%; background: linear-gradient(45deg, var(--bg1), var(--bg2)); filter: blur(30px); opacity: 0.4; }
-        .glass-shape { width: 130px; height: 130px; border-radius: 24px; background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; font-size: 36px; z-index: 1; transition: transform 0.3s ease; }
-        .card:hover .glass-shape { transform: scale(1.05) rotate(3deg); }
-        
-        .card-info { padding: 20px; background: #241E1E; }
-        .card-title { font-size: 16px; font-weight: 600; color: #FFFFFF; margin-bottom: 6px; letter-spacing: 0.3px; }
-        .card-sub { font-size: 13px; color: #AFA69F; }
-    </style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--dark);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  /* Custom cursor */
+  .cursor {
+    width: 10px; height: 10px;
+    background: var(--rose);
+    border-radius: 50%;
+    position: fixed; top:0; left:0;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.1s ease;
+    mix-blend-mode: difference;
+  }
+  .cursor-ring {
+    width: 36px; height: 36px;
+    border: 1px solid var(--rose);
+    border-radius: 50%;
+    position: fixed; top:0; left:0;
+    pointer-events: none;
+    z-index: 9998;
+    transition: transform 0.18s ease, width 0.2s, height 0.2s;
+    opacity: 0.5;
+  }
+
+  /* Noise overlay */
+  body::before {
+    content:'';
+    position: fixed; inset:0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 0;
+    opacity: 0.4;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top:0; left:0; right:0;
+    z-index: 100;
+    display: flex; align-items:center; justify-content:space-between;
+    padding: 1.4rem 3rem;
+    background: rgba(13,13,15,0.7);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--rose);
+    letter-spacing: 0.05em;
+  }
+  .nav-logo span { color: var(--gold); font-style: italic; }
+  .nav-links { display:flex; gap:2rem; }
+  .nav-links a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--rose); }
+  .nav-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--terminal-green);
+    border: 1px solid var(--terminal-green);
+    padding: 0.25rem 0.7rem;
+    border-radius: 2rem;
+    letter-spacing: 0.08em;
+    animation: pulse-green 2s infinite;
+  }
+  @keyframes pulse-green {
+    0%,100% { box-shadow: 0 0 0 0 rgba(74,222,128,0.3); }
+    50% { box-shadow: 0 0 0 6px rgba(74,222,128,0); }
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: flex-start;
+    padding: 0 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-grid-bg {
+    position: absolute; inset:0;
+    background-image:
+      linear-gradient(rgba(232,180,184,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(232,180,184,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+  }
+
+  .hero-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+  }
+  .orb1 {
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(232,180,184,0.18) 0%, transparent 70%);
+    top: -100px; right: -100px;
+    animation: float1 8s ease-in-out infinite;
+  }
+  .orb2 {
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(212,168,83,0.1) 0%, transparent 70%);
+    bottom: 50px; left: 200px;
+    animation: float2 10s ease-in-out infinite;
+  }
+  @keyframes float1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-30px,30px)} }
+  @keyframes float2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(20px,-20px)} }
+
+  .hero-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--rose);
+    letter-spacing: 0.2em;
+    margin-bottom: 1.2rem;
+    display: flex; align-items: center; gap: 0.8rem;
+    animation: fadeUp 0.8s ease both;
+  }
+  .hero-eyebrow::before {
+    content:''; display:block;
+    width:32px; height:1px;
+    background: var(--rose);
+  }
+
+  h1.hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.3rem;
+    animation: fadeUp 0.8s 0.1s ease both;
+  }
+  h1.hero-name .name-rose { color: var(--rose); }
+  h1.hero-name .name-italic { font-style: italic; color: var(--gold); }
+
+  .hero-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: clamp(0.8rem, 1.5vw, 1rem);
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+  .hero-title .highlight { color: var(--aws-orange); }
+
+  .hero-desc {
+    max-width: 480px;
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+
+  .hero-ctas {
+    display:flex; gap:1rem; flex-wrap:wrap;
+    animation: fadeUp 0.8s 0.4s ease both;
+  }
+  .btn-primary {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    padding: 0.9rem 2rem;
+    background: linear-gradient(135deg, var(--rose), var(--rose-deep));
+    color: var(--dark);
+    border: none; border-radius: 2px;
+    cursor: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    font-weight: 500;
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(232,180,184,0.3);
+  }
+  .btn-secondary {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    padding: 0.9rem 2rem;
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    cursor: none;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-secondary:hover { border-color: var(--rose); color: var(--rose); }
+
+  /* ─── TERMINAL TICKER ─── */
+  .ticker {
+    position: absolute; bottom: 2rem; left:0; right:0;
+    overflow: hidden;
+    border-top: 1px solid var(--border);
+    padding: 0.8rem 0;
+    background: rgba(13,13,15,0.5);
+  }
+  .ticker-inner {
+    display:flex; gap:4rem;
+    animation: ticker 20s linear infinite;
+    white-space: nowrap;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+  }
+  .ticker-item { display:flex; align-items:center; gap:0.5rem; }
+  .ticker-item .dot { width:6px; height:6px; border-radius:50%; background:var(--terminal-green); }
+  .ticker-item .dot.orange { background: var(--aws-orange); }
+  .ticker-item .dot.rose { background: var(--rose); }
+  @keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+  @keyframes fadeUp {
+    from { opacity:0; transform: translateY(24px); }
+    to { opacity:1; transform: translateY(0); }
+  }
+
+  /* ─── SECTIONS ─── */
+  section { padding: 7rem 3rem; position:relative; }
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--rose);
+    letter-spacing: 0.25em;
+    margin-bottom: 0.8rem;
+    display:flex; align-items:center; gap:0.8rem;
+  }
+  .section-label::after {
+    content:''; flex:1; max-width:60px; height:1px;
+    background: linear-gradient(to right, var(--rose), transparent);
+  }
+  h2.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    margin-bottom: 3.5rem;
+    line-height: 1.15;
+  }
+  h2.section-title em { color: var(--rose); font-style: italic; }
+
+  /* ─── STATS BAR ─── */
+  .stats-bar {
+    background: var(--dark2);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 2.5rem 3rem;
+    display: flex; gap: 0; overflow:hidden;
+  }
+  .stat {
+    flex:1; text-align:center;
+    border-right: 1px solid var(--border);
+    padding: 0 2rem;
+  }
+  .stat:last-child { border-right:none; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: var(--rose);
+    display:block;
+    line-height:1;
+  }
+  .stat-num.gold { color: var(--gold); }
+  .stat-num.green { color: var(--terminal-green); }
+  .stat-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    letter-spacing: 0.15em;
+    margin-top:0.4rem;
+    display:block;
+  }
+
+  /* ─── SKILLS GRID ─── */
+  .skills-section { background: var(--dark); }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .skill-card {
+    background: var(--dark2);
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+  }
+  .skill-card::before {
+    content:'';
+    position:absolute; top:0; left:0; right:0;
+    height: 2px;
+    background: var(--skill-color, var(--rose));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+  .skill-card:hover { background: var(--dark3); }
+  .skill-card:hover::before { transform: scaleX(1); }
+  .skill-icon {
+    font-size: 1.8rem; margin-bottom: 1.2rem;
+  }
+  .skill-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+  }
+  .skill-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+  .skill-tags { display:flex; flex-wrap:wrap; gap:0.5rem; }
+  .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+    padding: 0.25rem 0.6rem;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    border-radius: 2px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .skill-card:hover .tag { border-color: rgba(232,180,184,0.3); color: var(--rose); }
+
+  /* ─── PROJECTS ─── */
+  .projects-section { background: var(--dark2); }
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+  }
+  .project-card {
+    background: var(--dark2);
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+    cursor: none;
+  }
+  .project-card.featured {
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+  .project-card:hover { background: var(--dark3); }
+  .project-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    letter-spacing: 0.15em;
+    margin-bottom: 1.5rem;
+  }
+  .project-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    margin-bottom: 0.8rem;
+    line-height: 1.2;
+  }
+  .project-name em { color: var(--rose); font-style: italic; }
+  .project-desc {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    line-height: 1.75;
+    margin-bottom: 1.5rem;
+  }
+  .project-tech {
+    display:flex; flex-wrap:wrap; gap:0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .tech-pill {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.06em;
+    padding: 0.3rem 0.7rem;
+    border-radius: 2rem;
+    color: var(--dark);
+    font-weight: 500;
+  }
+  .tp-orange { background: var(--aws-orange); }
+  .tp-rose { background: var(--rose); }
+  .tp-green { background: var(--terminal-green); }
+  .tp-gold { background: var(--gold); }
+
+  .project-metric {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--terminal-green);
+    letter-spacing: 0.1em;
+    display:flex; align-items:center; gap:0.5rem;
+  }
+  .project-metric::before { content:'▲'; font-size: 0.5rem; }
+
+  /* Terminal block */
+  .terminal-block {
+    background: #0a0a0c;
+    border: 1px solid rgba(74,222,128,0.2);
+    border-radius: 4px;
+    padding: 1.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    line-height: 1.8;
+  }
+  .term-line { display:flex; gap:1rem; }
+  .term-prompt { color: var(--rose); }
+  .term-cmd { color: var(--text); }
+  .term-out { color: var(--terminal-green); padding-left:1.5rem; }
+  .term-comment { color: var(--text-muted); padding-left:1.5rem; }
+
+  /* ─── CASE STUDY ─── */
+  .case-study-section { background: var(--dark); }
+  .case-study-grid {
+    display:grid;
+    grid-template-columns: 1fr 2px 1fr 2px 1fr;
+    gap:0;
+    background: var(--border);
+  }
+  .cs-divider { background: var(--border); }
+  .cs-block {
+    background: var(--dark);
+    padding: 3rem 2.5rem;
+  }
+  .cs-block:hover { background: var(--dark2); }
+  .cs-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    color: var(--border);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+  }
+  .cs-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: var(--rose);
+  }
+  .cs-text {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.75;
+  }
+  .cs-impact {
+    margin-top: 1rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--terminal-green);
+    letter-spacing: 0.08em;
+  }
+
+  /* ─── STACK TICKER ─── */
+  .stack-section {
+    background: var(--dark2);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 3rem 0;
+    overflow:hidden;
+  }
+  .stack-row { overflow:hidden; margin-bottom: 1rem; }
+  .stack-row:last-child { margin-bottom: 0; }
+  .stack-inner {
+    display:flex; gap:2rem;
+    animation: ticker 30s linear infinite;
+    white-space: nowrap;
+  }
+  .stack-inner.reverse { animation-direction: reverse; }
+  .stack-item {
+    display:flex; align-items:center; gap:0.6rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    padding: 0.5rem 1.2rem;
+    border-radius: 2rem;
+    white-space: nowrap;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .stack-item:hover { border-color: var(--rose); color: var(--rose); }
+  .stack-emoji { font-size: 0.9rem; }
+
+  /* ─── CONTACT ─── */
+  .contact-section {
+    background: var(--dark);
+    text-align: center;
+    padding: 8rem 3rem;
+    position: relative;
+    overflow:hidden;
+  }
+  .contact-bg {
+    position: absolute; inset:0;
+    background: radial-gradient(ellipse 60% 60% at 50% 100%, rgba(232,180,184,0.08), transparent);
+    pointer-events:none;
+  }
+  .contact-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--rose);
+    letter-spacing: 0.2em;
+    margin-bottom: 1rem;
+  }
+  .contact-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    margin-bottom: 1rem;
+    line-height: 1.1;
+  }
+  .contact-title em { color: var(--rose); font-style:italic; }
+  .contact-sub {
+    color: var(--text-muted);
+    max-width:400px; margin: 0 auto 2.5rem;
+    font-size: 0.9rem; line-height:1.7;
+  }
+  .contact-links {
+    display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;
+  }
+  .contact-link {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing:0.1em;
+    color: var(--text-muted);
+    text-decoration: none;
+    border: 1px solid var(--border);
+    padding: 0.8rem 1.8rem;
+    border-radius: 2px;
+    transition: all 0.2s;
+    display:flex; align-items:center; gap:0.5rem;
+  }
+  .contact-link:hover { border-color: var(--rose); color: var(--rose); }
+  .contact-link.primary {
+    background: linear-gradient(135deg, var(--rose), var(--rose-deep));
+    color: var(--dark);
+    border-color: transparent;
+  }
+  .contact-link.primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(232,180,184,0.25); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--dark2);
+    border-top: 1px solid var(--border);
+    padding: 1.5rem 3rem;
+    display:flex; justify-content:space-between; align-items:center;
+  }
+  .footer-left {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+  }
+  .footer-left span { color: var(--rose); }
+  .footer-right {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+  }
+
+  /* scroll reveal */
+  .reveal { opacity:0; transform:translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity:1; transform:translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+
+  @media(max-width:768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display:none; }
+    .hero { padding: 0 1.5rem; }
+    section { padding: 4rem 1.5rem; }
+    .stats-bar { flex-direction:column; gap:2rem; }
+    .stat { border-right:none; border-bottom: 1px solid var(--border); padding:1rem 0; }
+    .stat:last-child { border-bottom:none; }
+    .projects-grid { grid-template-columns:1fr; }
+    .project-card.featured { grid-column:1; grid-template-columns:1fr; }
+    .case-study-grid { grid-template-columns:1fr; }
+    .cs-divider { display:none; }
+    footer { flex-direction:column; gap:0.5rem; text-align:center; }
+  }
+</style>
 </head>
 <body>
 
-    <header>
-        <div class="greeting">Good afternoon, Yashvi</div>
-        <h1>Find your next bit of inspiration</h1>
-        <p class="desc">A calm, curated space for the work you love. Browse, save, and shape your creative cloud and design direction.</p>
-        
-        <div class="search-container">
-            <input type="text" class="search-bar" placeholder="Search inspiration, pipelines, aesthetics...">
-        </div>
-        
-        <div class="categories">
-            <button class="cat-btn active">All</button>
-            <button class="cat-btn">Cute Aesthetics</button>
-            <button class="cat-btn">AWS Cloud</button>
-            <button class="cat-btn">DevOps Pipelines</button>
-            <button class="cat-btn">3D Art</button>
-        </div>
-    </header>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
 
-    <main class="grid">
-        <!-- Card 1 -->
-        <div class="card">
-            <div class="card-img" style="--bg1: #A77B70; --bg2: #E6C5BC;">
-                <div class="glass-shape">💻</div>
-            </div>
-            <div class="card-info">
-                <div class="card-title">Aesthetic Workspace</div>
-                <div class="card-sub">Created by Yashvi · Muted Rose-Gold</div>
-            </div>
-        </div>
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Yashvi<span>.</span></div>
+  <div class="nav-links">
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#stack">Stack</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="nav-badge">● OPEN TO WORK</div>
+</nav>
 
-        <!-- Card 2 -->
-        <div class="card">
-            <div class="card-img" style="--bg1: #4A6B82; --bg2: #7FAAB5;">
-                <div class="glass-shape">⚙️</div>
-            </div>
-            <div class="card-info">
-                <div class="card-title">My Cloud Pipeline</div>
-                <div class="card-sub">Created by Yashvi · CI/CD Automated</div>
-            </div>
-        </div>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-orb orb1"></div>
+  <div class="hero-orb orb2"></div>
 
-        <!-- Card 3 -->
-        <div class="card">
-            <div class="card-img" style="--bg1: #6C5B7B; --bg2: #C06C84;">
-                <div class="glass-shape">☁️</div>
-            </div>
-            <div class="card-info">
-                <div class="card-title">AWS Infrastructure</div>
-                <div class="card-sub">Created by Yashvi · Serverless Architect</div>
-            </div>
-        </div>
+  <p class="hero-eyebrow">Cloud & DevOps Engineer</p>
+  <h1 class="hero-name">
+    <span class="name-rose">Yashvi</span><br>
+    <span class="name-italic">Thakar</span>
+  </h1>
+  <p class="hero-title">
+    AWS · <span class="highlight">CI/CD</span> · Infrastructure as Code · Frontend
+  </p>
+  <p class="hero-desc">
+    I design and deploy cloud-native infrastructure that scales globally — then make it beautiful enough to show off. Aesthetic meets architecture.
+  </p>
+  <div class="hero-ctas">
+    <button class="btn-primary" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">View Projects</button>
+    <button class="btn-secondary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Let's Connect</button>
+  </div>
 
-        <!-- Card 4 -->
-        <div class="card">
-            <div class="card-img" style="--bg1: #8C7A6B; --bg2: #D4C3B3;">
-                <div class="glass-shape">✨</div>
-            </div>
-            <div class="card-info">
-                <div class="card-title">Minimalist Frontend</div>
-                <div class="card-sub">Created by Yashvi · Premium Assets</div>
-            </div>
-        </div>
-    </main>
+  <div class="ticker">
+    <div class="ticker-inner">
+      <span class="ticker-item"><span class="dot"></span>AWS Amplify · Zero downtime deployments</span>
+      <span class="ticker-item"><span class="dot orange"></span>CloudFormation · Infrastructure as Code</span>
+      <span class="ticker-item"><span class="dot rose"></span>CI/CD Pipelines · Git-triggered automation</span>
+      <span class="ticker-item"><span class="dot"></span>Lambda · Serverless at scale</span>
+      <span class="ticker-item"><span class="dot orange"></span>S3 + CloudFront · Global edge delivery</span>
+      <span class="ticker-item"><span class="dot rose"></span>Docker · Containerized workflows</span>
+      <!-- repeat -->
+      <span class="ticker-item"><span class="dot"></span>AWS Amplify · Zero downtime deployments</span>
+      <span class="ticker-item"><span class="dot orange"></span>CloudFormation · Infrastructure as Code</span>
+      <span class="ticker-item"><span class="dot rose"></span>CI/CD Pipelines · Git-triggered automation</span>
+      <span class="ticker-item"><span class="dot"></span>Lambda · Serverless at scale</span>
+      <span class="ticker-item"><span class="dot orange"></span>S3 + CloudFront · Global edge delivery</span>
+      <span class="ticker-item"><span class="dot rose"></span>Docker · Containerized workflows</span>
+    </div>
+  </div>
+</section>
 
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat reveal">
+    <span class="stat-label">INFRA COST / MONTH</span>
+  </div>
+  <div class="stat reveal reveal-delay-1">
+    <span class="stat-label">UPTIME SLA</span>
+  </div>
+  <div class="stat reveal reveal-delay-2">
+    <span class="stat-num green">&lt;30s</span>
+    <span class="stat-label">DEPLOY TIME</span>
+  </div>
+  <div class="stat reveal reveal-delay-3">
+    <span class="stat-num">3+</span>
+    <span class="stat-label">AWS SERVICES MASTERED</span>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<section id="skills" class="skills-section">
+  <p class="section-label reveal">EXPERTISE</p>
+  <h2 class="section-title reveal">What I <em>bring</em><br>to the table</h2>
+
+  <div class="skills-grid">
+    <div class="skill-card reveal" style="--skill-color: #ff9900">
+      <div class="skill-icon">☁️</div>
+      <div class="skill-name">AWS Cloud Infrastructure</div>
+      <div class="skill-desc">Architecting serverless, scalable, and cost-optimized cloud environments. From VPCs to Lambda — I build what enterprises rely on.</div>
+      <div class="skill-tags">
+        <span class="tag">EC2</span>
+        <span class="tag">S3</span>
+        <span class="tag">Lambda</span>
+        <span class="tag">CloudFront</span>
+        <span class="tag">IAM</span>
+        <span class="tag">RDS</span>
+      </div>
+    </div>
+
+    <div class="skill-card reveal reveal-delay-1" style="--skill-color: #4ade80">
+      <div class="skill-icon">⚙️</div>
+      <div class="skill-name">CI/CD & Automation</div>
+      <div class="skill-desc">Building self-healing pipelines that test, build, and deploy automatically. Push to main, watch it ship — zero manual intervention.</div>
+      <div class="skill-tags">
+        <span class="tag">AWS Amplify</span>
+        <span class="tag">GitHub Actions</span>
+        <span class="tag">CodePipeline</span>
+        <span class="tag">Docker</span>
+        <span class="tag">Terraform</span>
+      </div>
+    </div>
+
+    <div class="skill-card reveal reveal-delay-2" style="--skill-color: #e8b4b8">
+      <div class="skill-icon">✨</div>
+      <div class="skill-name">Frontend Engineering</div>
+      <div class="skill-desc">Crafting pixel-perfect interfaces that are as performant as they are beautiful. Because good infrastructure deserves a good face.</div>
+      <div class="skill-tags">
+        <span class="tag">HTML/CSS</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">React</span>
+        <span class="tag">Responsive</span>
+        <span class="tag">UI/UX</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="projects-section">
+  <p class="section-label reveal">PROJECTS</p>
+  <h2 class="section-title reveal">Work that <em>ships</em></h2>
+
+  <div class="projects-grid">
+    <!-- Featured -->
+    <div class="project-card featured reveal">
+      <div>
+        <div class="project-num">01 · FEATURED</div>
+        <div class="project-name">The <em>Self-Healing</em><br>Cloud Pipeline</div>
+        <div class="project-desc">
+          Designed a fully automated CI/CD infrastructure on AWS Amplify with Git-triggered deployments. Any push to main triggers a build, test, and global edge deployment — in under 30 seconds. Zero servers to manage, zero downtime, zero cost.
+        </div>
+        <div class="project-tech">
+          <span class="tech-pill tp-orange">AWS Amplify</span>
+          <span class="tech-pill tp-green">GitHub Actions</span>
+          <span class="tech-pill tp-rose">HTML/CSS/JS</span>
+          <span class="tech-pill tp-gold">CloudFront</span>
+      <div class="terminal-block">
+        <div class="term-line"><span class="term-prompt">$</span><span class="term-cmd">git push origin main</span></div>
+        <div class="term-line"><span class="term-out">✓ Build triggered on Amplify</span></div>
+        <div class="term-line"><span class="term-out">✓ Dependencies installed (12s)</span></div>
+        <div class="term-line"><span class="term-out">✓ Build passed</span></div>
+        <div class="term-line"><span class="term-out">✓ Deployed to 200+ edge nodes</span></div>
+        <div class="term-line"><span class="term-comment"># Total: 28 seconds. No servers harmed.</span></div>
+        <br>
+        <div class="term-line"><span class="term-prompt">$</span><span class="term-cmd">aws cloudfront list-distributions</span></div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="project-card reveal">
+      <div class="project-num">02 · INFRASTRUCTURE</div>
+      <div class="project-name">Serverless <em>Architecture</em> Design</div>
+      <div class="project-desc">
+        Architected a fully serverless application using AWS Lambda, API Gateway, and DynamoDB. Scales from 0 to 10,000 requests/sec with no cold-start bottlenecks.
+      </div>
+      <div class="project-tech">
+        <span class="tech-pill tp-orange">Lambda</span>
+        <span class="tech-pill tp-gold">API Gateway</span>
+        <span class="tech-pill tp-green">DynamoDB</span>
+
+    <!-- Card 3 -->
+    <div class="project-card reveal reveal-delay-1">
+      <div class="project-num">03 · FRONTEND</div>
+      <div class="project-name"><em>Creative</em> Dev Portfolio Hub</div>
+      <div class="project-desc">
+        A curated portfolio platform combining aesthetic frontend design with cloud-native hosting. Designed with a rose-gold × dark theme, deployed globally via Amplify.
+      </div>
+      <div class="project-tech">
+        <span class="tech-pill tp-rose">HTML/CSS</span>
+        <span class="tech-pill tp-orange">AWS Amplify</span>
+        <span class="tech-pill tp-gold">UI Design</span>
+      </div>
+      <div class="project-metric">Live at amplifyapp.com · instant global CDN</div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDY -->
+<section id="casestudy" class="case-study-section">
+  <p class="section-label reveal">CASE STUDY</p>
+  <h2 class="section-title reveal">How I <em>think</em><br>through problems</h2>
+
+  <div class="case-study-grid">
+    <div class="cs-block reveal">
+      <div class="cs-num">01</div>
+      <div class="cs-heading">The Challenge</div>
+      <div class="cs-text">Needed a premium creative portfolio with zero server management costs, instant global delivery, and automated deployments — all without sacrificing design quality.</div>
+    </div>
+    <div class="cs-divider"></div>
+    <div class="cs-block reveal reveal-delay-1">
+      <div class="cs-num">02</div>
+      <div class="cs-heading">The Execution</div>
+      <div class="cs-text">Provisioned AWS Amplify Hosting with Git integration. Designed a responsive frontend, configured custom build settings, and linked the CI/CD pipeline to main branch triggers.</div>
+      <div class="cs-impact">↳ Deploy time: under 30 seconds</div>
+    </div>
+    <div class="cs-divider"></div>
+    <div class="cs-block reveal reveal-delay-2">
+      <div class="cs-num">03</div>
+      <div class="cs-heading">The Impact</div>
+      <div class="cs-text">Zero infrastructure maintenance overhead. Instantaneous edge deployments to 200+ global CloudFront nodes. Fully automated — push once, ship everywhere.</div>
+    </div>
+  </div>
+</section>
+
+<!-- STACK -->
+<section id="stack" class="stack-section">
+  <div class="stack-row">
+    <div class="stack-inner">
+      <span class="stack-item"><span class="stack-emoji">☁️</span>AWS</span>
+      <span class="stack-item"><span class="stack-emoji">🚀</span>AWS Amplify</span>
+      <span class="stack-item"><span class="stack-emoji">⚡</span>Lambda</span>
+      <span class="stack-item"><span class="stack-emoji">🗄️</span>S3</span>
+      <span class="stack-item"><span class="stack-emoji">🌐</span>CloudFront</span>
+      <span class="stack-item"><span class="stack-emoji">🔐</span>IAM</span>
+      <span class="stack-item"><span class="stack-emoji">📡</span>API Gateway</span>
+      <span class="stack-item"><span class="stack-emoji">🗃️</span>DynamoDB</span>
+      <!-- repeat -->
+      <span class="stack-item"><span class="stack-emoji">☁️</span>AWS</span>
+      <span class="stack-item"><span class="stack-emoji">🚀</span>AWS Amplify</span>
+      <span class="stack-item"><span class="stack-emoji">⚡</span>Lambda</span>
+      <span class="stack-item"><span class="stack-emoji">🗄️</span>S3</span>
+      <span class="stack-item"><span class="stack-emoji">🌐</span>CloudFront</span>
+      <span class="stack-item"><span class="stack-emoji">🔐</span>IAM</span>
+      <span class="stack-item"><span class="stack-emoji">📡</span>API Gateway</span>
+      <span class="stack-item"><span class="stack-emoji">🗃️</span>DynamoDB</span>
+    </div>
+  </div>
+  <div class="stack-row">
+    <div class="stack-inner reverse">
+      <span class="stack-item"><span class="stack-emoji">🐙</span>GitHub Actions</span>
+      <span class="stack-item"><span class="stack-emoji">🐋</span>Docker</span>
+      <span class="stack-item"><span class="stack-emoji">🏗️</span>Terraform</span>
+      <span class="stack-item"><span class="stack-emoji">🔧</span>CodePipeline</span>
+      <span class="stack-item"><span class="stack-emoji">💻</span>HTML/CSS/JS</span>
+      <span class="stack-item"><span class="stack-emoji">⚛️</span>React</span>
+      <span class="stack-item"><span class="stack-emoji">🎨</span>UI/UX Design</span>
+      <span class="stack-item"><span class="stack-emoji">📊</span>CloudWatch</span>
+      <!-- repeat -->
+      <span class="stack-item"><span class="stack-emoji">🐙</span>GitHub Actions</span>
+      <span class="stack-item"><span class="stack-emoji">🐋</span>Docker</span>
+      <span class="stack-item"><span class="stack-emoji">🏗️</span>Terraform</span>
+      <span class="stack-item"><span class="stack-emoji">🔧</span>CodePipeline</span>
+      <span class="stack-item"><span class="stack-emoji">💻</span>HTML/CSS/JS</span>
+      <span class="stack-item"><span class="stack-emoji">⚛️</span>React</span>
+      <span class="stack-item"><span class="stack-emoji">🎨</span>UI/UX Design</span>
+      <span class="stack-item"><span class="stack-emoji">📊</span>CloudWatch</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="contact-bg"></div>
+  <p class="contact-eyebrow reveal">READY TO HIRE?</p>
+  <h2 class="contact-title reveal">Let's build<br>something <em>great</em></h2>
+  <p class="contact-sub reveal">Open to Cloud Engineer, DevOps, and Full-Stack roles at companies that value both technical excellence and beautiful execution.</p>
+  <div class="contact-links reveal">
+    <a class="contact-link primary" href="mailto:yashvi@email.com">📩 yashvithakar003@email.com</a>
+    <a class="contact-link" href="https://linkedin.com" target="_blank">LinkedIn ↗</a>
+    <a class="contact-link" href="https://github.com" target="_blank">GitHub ↗</a>
+    <a class="contact-link" href="#">Resume PDF ↗</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-left">© 2026 <span>Yashvi</span> · Built with ☁️ & 💅🏻</div>
+  <div class="footer-right">Hosted on AWS Amplify · Deployed in &lt;30s</div>
+</footer>
+
+<script>
+  // Custom cursor
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; });
+  function animateCursor() {
+    cursor.style.transform = `translate(${mx-5}px, ${my-5}px)`;
+    rx += (mx - rx) * 0.12;
+    ry += (my - ry) *.12;
+    ring.style.transform = `translate(${rx-18}px, ${ry-18}px)`;
+    requestAnimationFrame(animateCursor);
+  }
+  animateCursor();
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
